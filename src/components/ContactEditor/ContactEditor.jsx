@@ -3,17 +3,13 @@ import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import s from "./ContactEditor.module.css";
 
-const initForm = {
-  email: "",
-  password: "",
-};
-
 const ContactEditor = () => {
+  const initForm = { name: "", number: "" };
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values, options) => {
     dispatch(addContact(values));
-    resetForm();
+    options.resetForm();
   };
 
   return (
@@ -25,7 +21,7 @@ const ContactEditor = () => {
         </label>
         <label>
           Phone
-          <Field type="text" name="phone" />
+          <Field type="text" name="number" />
         </label>
         <button type="submit">Add contact</button>
       </Form>

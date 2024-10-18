@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectError, selectLoading } from "../../redux/contacts/selectors";
 
+import Loader from "../../components/Loader/Loader";
 import DocumentTitle from "../../components/DocumentTitle";
 import ContactEditor from "../../components/ContactEditor/ContactEditor";
 import SearchBox from "../../components/SearchBox/SearchBox";
@@ -23,8 +24,8 @@ const ContactsPage = () => {
       <DocumentTitle>Your Contacts</DocumentTitle>
       <ContactEditor />
       <SearchBox />
-      {isError && "Eroor: {error}"}
-      {isLoading && "Request in progress..."}
+      {isLoading && !isError && <Loader />}
+      {isError}
       <ContactList />
     </>
   );

@@ -1,7 +1,12 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+
+import { IoPersonAddSharp } from "react-icons/io5";
 import s from "./ContactEditor.module.css";
+
+import * as Yup from "yup";
 
 const ContactEditor = () => {
   const initForm = { name: "", number: "" };
@@ -12,18 +17,51 @@ const ContactEditor = () => {
     options.resetForm();
   };
 
+  const ContactSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3, "Min 3 characters")
+      .max(50, "Max 50 characters")
+      .required("Required field!"),
+    number: Yup.string()
+      .matches(
+        /^[0-9()+\-\s]+$/,
+        "The phone number can only contain numbers and symbols +, -, (, ) and spaces') // Numbers and symbols are allowed"
+      )
+      .min(3, "Min 3 characters")
+      .max(50, "Max 50 characters")
+      .required("Required fild!"),
+  });
+
   return (
-    <Formik initialValues={initForm} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initForm}
+      validationSchema={ContactSchema}
+      onSubmit={handleSubmit}
+    >
       <Form className={s.form}>
-        <label>
+        <label className={s.label}>
           Name
-          <Field type="text" name="name" />
+          <Field
+            type="text"
+            name="name"
+            placeholder="Enter name..."
+            className={s.field}
+          />
+          <ErrorMessage className={s.error} name="name" component="span" />
         </label>
-        <label>
+        <label className={s.label}>
           Phone
-          <Field type="text" name="number" />
+          <Field
+            type="text"
+            name="number"
+            placeholder="Enter number..."
+            className={s.field}
+          />
+          <ErrorMessage className={s.error} name="number" component="span" />
         </label>
-        <button type="submit">Add contact</button>
+        <button type="submit" className={s.btn}>
+          Add <IoPersonAddSharp />
+        </button>
       </Form>
     </Formik>
   );

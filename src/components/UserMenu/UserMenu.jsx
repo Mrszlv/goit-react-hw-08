@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/auth/operations";
 import { selectUser } from "../../redux/auth/selectors";
+import { FaAddressBook } from "react-icons/fa";
+
 import s from "./UserMenu.module.css";
+
+import { LuLogOut } from "react-icons/lu";
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -9,8 +13,16 @@ const UserMenu = () => {
 
   return (
     <div className={s.wrapper}>
-      <p className={s.username}>Welcome, {user.name}</p>
-      <button onClick={() => dispatch(logOut())}>Logout</button>
+      <p className={s.userName}>
+        {" "}
+        Welcome, <span className={s.span}>{user.name}</span> to your phone book{" "}
+      </p>
+      <span>
+        <FaAddressBook className={s.icon} />
+      </span>
+      <button className={s.btn} onClick={() => dispatch(logOut())}>
+        Logout <LuLogOut />
+      </button>
     </div>
   );
 };

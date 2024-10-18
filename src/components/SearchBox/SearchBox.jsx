@@ -22,7 +22,7 @@ const SearchBox = () => {
           type="text"
           value={filter}
           onChange={handleSearch}
-          placeholder="Enter name..."
+          placeholder="Enter a name or number..."
         />
       </label>
     </div>

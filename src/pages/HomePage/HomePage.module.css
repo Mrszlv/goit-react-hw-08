@@ -1,0 +1,36 @@
+.wrapp {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.img {
+  width: 400px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.titleSpan {
+  color: yellowgreen;
+}
+
+.text {
+  margin-bottom: 10px;
+}
+
+.span {
+  font-weight: bold;
+}
+
+.textWrapp {
+  display: flex;
+  flex-direction: column;
+}

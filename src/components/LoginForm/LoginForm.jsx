@@ -16,17 +16,37 @@ const LoginForm = () => {
     resetForm();
   };
   return (
-    <Formik initialValues={initForm} onSubmit={handleSubmit}>
-      <Form>
-        <Field type="email" name="email" placeholder="Enter email..." />
-        <Field
-          type="password"
-          name="password"
-          placeholder="Enter password..."
-        />
-        <button type="submit">Log In</button>
-      </Form>
-    </Formik>
+    <div className={s.wrapp}>
+      <Formik initialValues={initForm} onSubmit={handleSubmit}>
+        <Form className={s.form}>
+          <label className={s.label}>
+            Email
+            <Field
+              className={s.field}
+              type="email"
+              name="email"
+              placeholder="Enter email..."
+            />
+          </label>
+          <label className={s.label}>
+            Password
+            <Field
+              className={s.field}
+              type="password"
+              name="password"
+              placeholder="Enter password..."
+            />
+          </label>
+          <button className={s.btn} type="submit">
+            Log In
+          </button>
+        </Form>
+      </Formik>
+      <div className={s.textWrapp}>
+        <h2>Login now!</h2>
+        <p>To go to contacts, enter your login and password</p>
+      </div>
+    </div>
   );
 };
 

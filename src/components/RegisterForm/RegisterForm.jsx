@@ -1,31 +1,96 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import s from "./RegisterForm.module.css";
 
-const initForm = {
-  name: "",
-  email: "",
-  password: "",
-};
+import * as Yup from "yup";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
-
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(register(values));
-    resetForm();
+  const initForm = {
+    name: "",
+    email: "",
+    password: "",
   };
 
+  const handleSubmit = (values, options) => {
+    console.log(values);
+
+    dispatch(register(values));
+    options.resetForm();
+  };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(8, "Password must contain at least 8 characters")
+      .matches(
+        /[a-z]/,
+        "The password must contain at least 1 letter in lowercase"
+      )
+      .matches(
+        /[A-Z]/,
+        "The password must contain at leats 1 letter in uppercase"
+      )
+      .matches(/\d/, "The password must contain at least 1 number")
+      .required("Password is required"),
+  });
+
   return (
-    <Formik initialValues={initForm} onSubmit={handleSubmit}>
-      <Form>
-        <Field type="text" name="name" placeholder="Enter name..." />
-        <Field type="email" name="email" placeholder="Enter email..." />
-        <Field type="password" name="password" placeholder="Enter password" />
-        <button type="submit">Register</button>
-      </Form>
-    </Formik>
+    <div className={s.wrapp}>
+      <Formik
+        initialValues={initForm}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form className={s.form}>
+          <label className={s.label}>
+            Name
+            <Field
+              className={s.field}
+              type="text"
+              name="name"
+              placeholder="Enter name..."
+            />
+            <ErrorMessage className={s.error} name="name" component="span" />
+          </label>
+          <label className={s.label}>
+            Email
+            <Field
+              className={s.field}
+              type="email"
+              name="email"
+              placeholder="Enter email..."
+            />
+            <ErrorMessage className={s.error} name="email" component="span" />
+          </label>
+          <label className={s.label}>
+            Password
+            <Field
+              className={s.field}
+              type="password"
+              name="password"
+              placeholder="Enter password"
+            />
+            <ErrorMessage
+              className={s.error}
+              name="password"
+              component="span"
+            />
+          </label>
+          <button className={s.btn} type="submit">
+            Register
+          </button>
+        </Form>
+      </Formik>
+      <div className={s.textWrapp}>
+        <h2>Register now!</h2>
+        <p>You need to register to work with contacts</p>
+      </div>
+    </div>
   );
 };
 

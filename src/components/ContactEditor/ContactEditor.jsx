@@ -1,12 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 
 import { IoPersonAddSharp } from "react-icons/io5";
-import s from "./ContactEditor.module.css";
 
-import * as Yup from "yup";
+import s from "./ContactEditor.module.css";
 
 const ContactEditor = () => {
   const initForm = { name: "", number: "" };

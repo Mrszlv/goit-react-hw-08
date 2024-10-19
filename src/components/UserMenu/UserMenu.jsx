@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+
 import { logOut } from "../../redux/auth/operations";
 import { selectUser } from "../../redux/auth/selectors";
+
 import { FaAddressBook } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
 
 import s from "./UserMenu.module.css";
-
-import { LuLogOut } from "react-icons/lu";
 
 const UserMenu = () => {
   const dispatch = useDispatch();

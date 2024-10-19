@@ -1,10 +1,8 @@
-import DocumentTitle from "../../components/DocumentTitle";
 import s from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
     <>
-      <DocumentTitle>Home</DocumentTitle>
       <div className={s.wrapp}>
         <img
           className={s.img}

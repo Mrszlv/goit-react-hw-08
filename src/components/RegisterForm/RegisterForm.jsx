@@ -1,9 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
-import s from "./RegisterForm.module.css";
 
-import * as Yup from "yup";
+import s from "./RegisterForm.module.css";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,7 @@ const RegisterForm = () => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
-    email:
-      Yup.string()
-      .required("Email is required"),
+    email: Yup.string().required("Email is required"),
     password: Yup.string()
       .min(8, "Password must contain at least 8 characters")
       .matches(

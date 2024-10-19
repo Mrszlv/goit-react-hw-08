@@ -53,12 +53,14 @@ const Contact = ({ contact }) => {
             height: 300,
             borderRadius: 5,
             margin: "auto",
-            marginTop: 20,
+            marginTop: 30,
             padding: 2,
             backgroundColor: "gray",
           }}
         >
-          <h4 className={s.title}>Editing a contact</h4>
+          <h4 className={s.title}>
+            Editing a <span className={s.span}>contact</span>{" "}
+          </h4>
           <UpdateContactForm contact={contact} onClose={handleClose} />
         </Box>
       </Modal>

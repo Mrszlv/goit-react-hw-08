@@ -46,6 +46,7 @@ const UpdateContactForm = ({ contact, onClose }) => {
               id="name"
               value={values.name}
               onChange={handleChange}
+              placeholder="Enter new name..."
               className={s.field}
             />
             <ErrorMessage name="name" component="span" />
@@ -58,6 +59,7 @@ const UpdateContactForm = ({ contact, onClose }) => {
               id="number"
               value={values.number}
               onChange={handleChange}
+              placeholder="Enter new number..."
               className={s.field}
             />
             <ErrorMessage name="number" component="span" />

@@ -49,7 +49,7 @@ const UpdateContactForm = ({ contact, onClose }) => {
               placeholder="Enter new name..."
               className={s.field}
             />
-            <ErrorMessage name="name" component="span" />
+            <ErrorMessage className={s.error} name="name" component="span" />
           </label>
           <label className={s.label}>
             New Number
@@ -62,7 +62,7 @@ const UpdateContactForm = ({ contact, onClose }) => {
               placeholder="Enter new number..."
               className={s.field}
             />
-            <ErrorMessage name="number" component="span" />
+            <ErrorMessage className={s.error} name="number" component="span" />
           </label>
           <div className={s.wrappBtn}>
             <button type="submit" className={s.btnCheck}>

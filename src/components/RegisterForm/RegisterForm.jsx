@@ -14,16 +14,14 @@ const RegisterForm = () => {
   };
 
   const handleSubmit = (values, options) => {
-    console.log(values);
-
     dispatch(register(values));
     options.resetForm();
   };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
-    email: Yup.string()
-      .email("Invalid email format")
+    email:
+      Yup.string()
       .required("Email is required"),
     password: Yup.string()
       .min(8, "Password must contain at least 8 characters")

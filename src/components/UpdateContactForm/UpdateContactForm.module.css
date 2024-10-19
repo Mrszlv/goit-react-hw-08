@@ -1,0 +1,87 @@
+.form {
+  width: 340px;
+  background-color: rgba(145, 142, 140, 0.3);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.34),
+    0 4px 4px rgba(0, 0, 0, 0.28), 0 8px 8px rgba(0, 0, 0, 0.22);
+}
+
+.label {
+  margin: 0 auto;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: color 0.3s ease;
+}
+
+label:hover {
+  color: yellowgreen;
+}
+
+.field {
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.field:hover {
+  border-color: yellowgreen;
+}
+
+.field:focus {
+  outline: none;
+}
+
+.error {
+  color: red;
+}
+
+.wrappBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 200px;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+
+  transition: color 0.5s ease;
+}
+
+.btn:hover {
+  color: red;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btnCheck {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  transition: color 0.5s ease;
+}
+
+.btnCheck:hover {
+  color: green;
+}
+
+.btnCheck:focus {
+  outline: none;
+}

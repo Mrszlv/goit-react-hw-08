@@ -17,7 +17,7 @@ const ContactEditor = () => {
     options.resetForm();
   };
 
-  const ContactSchema = Yup.object().shape({
+  const contactSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Min 3 characters")
       .max(50, "Max 50 characters")
@@ -35,7 +35,7 @@ const ContactEditor = () => {
   return (
     <Formik
       initialValues={initForm}
-      validationSchema={ContactSchema}
+      validationSchema={contactSchema}
       onSubmit={handleSubmit}
     >
       <Form className={s.form}>

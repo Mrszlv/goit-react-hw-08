@@ -8,7 +8,7 @@
 }
 
 .wrapp {
-  animation: slide 2s ease-in-out 0s;
+  animation: slide 1.5s ease-in-out 0s;
   width: 340px;
   display: flex;
   flex-direction: column;

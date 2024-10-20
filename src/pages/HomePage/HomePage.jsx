@@ -11,8 +11,8 @@ const HomePage = () => {
         />
         <div className={s.textWrapp}>
           <h1 className={s.title}>
-            Welcome to the{" "}
-            <span className={s.titleSpan}>Contact Manager App</span>{" "}
+            Welcome to the <span className={s.titleSpan}>Contact Manager </span>{" "}
+            App
           </h1>
           <h2 className={s.title}>
             Manage your contacts easyly and efficiently. To get started, log in

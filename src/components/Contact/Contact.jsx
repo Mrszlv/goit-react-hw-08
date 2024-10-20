@@ -41,7 +41,7 @@ const Contact = ({ contact }) => {
           >
             <MdDelete />
           </button>
-          <button onClick={handleOpen} className={s.btn}>
+          <button onClick={handleOpen} className={s.btnEdit}>
             <FaUserEdit />
           </button>
         </div>

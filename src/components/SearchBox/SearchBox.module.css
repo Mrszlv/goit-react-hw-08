@@ -18,7 +18,6 @@
   margin: 0 auto;
   border: none;
   border-radius: 10px;
-  /* max-width: 360px; */
   max-height: 120px;
   padding: 10px;
   margin-bottom: 10px;
@@ -53,6 +52,6 @@
   border-color: yellowgreen;
 }
 
-input:focus {
+.input:focus {
   outline: none;
 }

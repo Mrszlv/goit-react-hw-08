@@ -1,8 +1,11 @@
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 import { Modal, Box } from "@mui/material";
 
 import { deleteContact } from "../../redux/contacts/operations";
+
+import UpdateContactForm from "../UpdateContactForm/UpdateContactForm";
 
 import { RiPhoneFill } from "react-icons/ri";
 import { IoPerson } from "react-icons/io5";
@@ -10,8 +13,6 @@ import { MdDelete } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 
 import s from "./Contact.module.css";
-import UpdateContactForm from "../UpdateContactForm/UpdateContactForm";
-import { useState } from "react";
 
 const Contact = ({ contact }) => {
   const [open, setOpen] = useState(false);

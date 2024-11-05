@@ -16,7 +16,7 @@ const SearchBox = () => {
   return (
     <div className={s.wrapp}>
       <label className={s.label}>
-        Find contacts by name
+        Find contacts by name & number
         <input
           className={s.input}
           type="text"
